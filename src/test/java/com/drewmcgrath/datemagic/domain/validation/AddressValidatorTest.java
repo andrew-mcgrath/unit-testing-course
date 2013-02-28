@@ -45,8 +45,8 @@ public class AddressValidatorTest {
         System.out.println("isAddressComplete");
         Address address = null;
         AddressValidator instance = new AddressValidator();
-        boolean expResult = false;
-        boolean result = instance.isAddressComplete(address);
+        Errors expResult = null;
+        Errors result = instance.isAddressComplete(address);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

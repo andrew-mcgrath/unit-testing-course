@@ -17,16 +17,13 @@ public class ProfileValidator {
     public ProfileValidator() {
     }
 
-    public boolean isProfileComplete(Profile profile) {
+    public Errors isProfileComplete(Profile profile) {
+        Errors errors = new Errors();
         // validate home address
-        if (!addressValidator.isAddressComplete(profile.getHomeAddress())) {
-            return false;
-        }
+        errors.add(addressValidator.isAddressComplete(profile.getHomeAddress()));
         // validate work address
-        if (!addressValidator.isAddressComplete(profile.getWorkAddress())) {
-            return false;
-        }
-        return false;
+        errors.add(addressValidator.isAddressComplete(profile.getWorkAddress()));
+        return errors;
     }
 
     public AddressValidator getAddressValidator() {

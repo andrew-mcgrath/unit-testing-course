@@ -13,7 +13,7 @@ import com.drewmcgrath.datemagic.domain.Address;
  */
 public class AddressValidator {
 
-    public boolean isAddressComplete(Address address) {
-        return false;
+    public Errors isAddressComplete(Address address) {
+        return null;
     }
 }

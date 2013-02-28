@@ -45,8 +45,8 @@ public class ProfileValidatorTest {
         System.out.println("isValidProfile");
         Profile profile = null;
         ProfileValidator instance = new ProfileValidator();
-        boolean expResult = false;
-        boolean result = instance.isProfileComplete(profile);
+        Errors expResult = null;
+        Errors result = instance.isProfileComplete(profile);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
