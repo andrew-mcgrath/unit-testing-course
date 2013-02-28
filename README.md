@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Introduction
 ### Andrew McGrath
 #### Experience
@@ -37,3 +38,9 @@
 
 # TDD
 # BDD
+=======
+unit-testing-course
+===================
+
+Unit Testing Examples
+>>>>>>> 3ccc94371977fb38ff8b7665005329d2ca640beb
