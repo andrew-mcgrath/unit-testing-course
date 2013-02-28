@@ -4,7 +4,7 @@
  */
 package com.drewmcgrath.datemagic.domain.validation;
 
-import com.drewmcgrath.datemagic.domain.Profile;
+import com.drewmcgrath.datemagic.domain.Address;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author amcgrath
  */
-public class ProfileValidatorTest {
+public class AddressValidatorTest {
 
-    public ProfileValidatorTest() {
+    public AddressValidatorTest() {
     }
 
     @BeforeClass
@@ -38,15 +38,15 @@ public class ProfileValidatorTest {
     }
 
     /**
-     * Test of isValidProfile method, of class ProfileValidator.
+     * Test of isAddressComplete method, of class AddressValidator.
      */
     @Test
-    public void testIsValidProfile() {
-        System.out.println("isValidProfile");
-        Profile profile = null;
-        ProfileValidator instance = new ProfileValidator();
+    public void testIsAddressComplete() {
+        System.out.println("isAddressComplete");
+        Address address = null;
+        AddressValidator instance = new AddressValidator();
         boolean expResult = false;
-        boolean result = instance.isProfileComplete(profile);
+        boolean result = instance.isAddressComplete(address);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

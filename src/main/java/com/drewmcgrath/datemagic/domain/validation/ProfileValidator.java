@@ -12,7 +12,28 @@ import com.drewmcgrath.datemagic.domain.Profile;
  */
 public class ProfileValidator {
 
-    public boolean isValidProfile(Profile profile) {
-        return true;
+    private AddressValidator addressValidator;
+
+    public ProfileValidator() {
+    }
+
+    public boolean isProfileComplete(Profile profile) {
+        // validate home address
+        if (!addressValidator.isAddressComplete(profile.getHomeAddress())) {
+            return false;
+        }
+        // validate work address
+        if (!addressValidator.isAddressComplete(profile.getWorkAddress())) {
+            return false;
+        }
+        return false;
+    }
+
+    public AddressValidator getAddressValidator() {
+        return addressValidator;
+    }
+
+    public void setAddressValidator(AddressValidator addressValidator) {
+        this.addressValidator = addressValidator;
     }
 }
