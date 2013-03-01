@@ -10,7 +10,7 @@ package com.drewmcgrath.datemagic.domain;
  */
 public enum PersonalInterest {
 
-    DINNING("Dinning"),
+    DINING("Dining"),
     DANCING("Dancing"),
     UNDER_WATER_BASKET_WEAVING("Underwater Basket Weaving");
     /**

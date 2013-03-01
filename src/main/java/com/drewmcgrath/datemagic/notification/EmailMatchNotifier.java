@@ -40,6 +40,7 @@ public class EmailMatchNotifier implements MatchNotifier {
      * @throws MissingResourceException if any of the configuration is missing
      */
     public void init() {
+        // if the configuration is missing
         if (configuration == null) {
             throw new MissingResourceException("Configuration unset", "EmailMatchNotifier", "configuration");
         }
@@ -69,6 +70,7 @@ public class EmailMatchNotifier implements MatchNotifier {
         mailSession = Session.getInstance(configuration, authenticator);
     }
 
+    //<editor-fold defaultstate="collapsed" desc="hidden">
     @Override
     public void notify(Profile profile, Collection<Profile> matches) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -90,4 +92,5 @@ public class EmailMatchNotifier implements MatchNotifier {
     public void setConfiguration(Properties configuration) {
         this.configuration = configuration;
     }
+    //</editor-fold>
 }

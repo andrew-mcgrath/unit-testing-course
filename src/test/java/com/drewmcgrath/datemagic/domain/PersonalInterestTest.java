@@ -60,9 +60,10 @@ public class PersonalInterestTest {
         PersonalInterest result = PersonalInterest.fromDisplayText(text);
         assertEquals(PersonalInterest.DANCING, result);
 
-        text = "Dinning";
+        // dinning
+        text = "Dining";
         result = PersonalInterest.fromDisplayText(text);
-        assertEquals(PersonalInterest.DINNING, result);
+        assertEquals(PersonalInterest.DINING, result);
 
         text = "Underwater Basket Weaving";
         result = PersonalInterest.fromDisplayText(text);
@@ -78,9 +79,9 @@ public class PersonalInterestTest {
         PersonalInterest result = PersonalInterest.fromDisplayText(text);
         assertEquals(PersonalInterest.DANCING, result);
 
-        text = "DiNninG";
+        text = "DiNinG";
         result = PersonalInterest.fromDisplayText(text);
-        assertEquals(PersonalInterest.DINNING, result);
+        assertEquals(PersonalInterest.DINING, result);
 
         text = "UnderWater BasKet WeaVing";
         result = PersonalInterest.fromDisplayText(text);
