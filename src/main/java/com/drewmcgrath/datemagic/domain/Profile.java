@@ -12,32 +12,25 @@ import java.util.List;
  */
 public class Profile {
 
-    private RelationshipType relationshipTime;
-    private OrientationType orientationType;
+    private RelationshipType relationshipType;
     private String firstName;
     private String lastName;
     private int age;
     private List<PersonalInterest> personalInterests;
     private String emailAddress;
     private String mobilePhone;
+    private Address homeAddress;
+    private Address workAddress;
 
     public Profile() {
     }
 
-    public RelationshipType getRelationshipTime() {
-        return relationshipTime;
+    public RelationshipType getRelationshipType() {
+        return relationshipType;
     }
 
-    public void setRelationshipTime(RelationshipType relationshipTime) {
-        this.relationshipTime = relationshipTime;
-    }
-
-    public OrientationType getOrientationType() {
-        return orientationType;
-    }
-
-    public void setOrientationType(OrientationType orientationType) {
-        this.orientationType = orientationType;
+    public void setRelationshipType(RelationshipType relationshipType) {
+        this.relationshipType = relationshipType;
     }
 
     public String getFirstName() {
@@ -86,5 +79,21 @@ public class Profile {
 
     public void setPersonalInterests(List<PersonalInterest> personalInterests) {
         this.personalInterests = personalInterests;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getWorkAddress() {
+        return workAddress;
+    }
+
+    public void setWorkAddress(Address workAddress) {
+        this.workAddress = workAddress;
     }
 }
