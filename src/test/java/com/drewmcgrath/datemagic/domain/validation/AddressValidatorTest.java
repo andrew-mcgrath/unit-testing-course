@@ -43,12 +43,18 @@ public class AddressValidatorTest {
     @Test
     public void testIsAddressComplete() {
         System.out.println("isAddressComplete");
-        Address address = null;
+        // create address
+        Address address = new Address();
+        address.setStreet("123 fake street");
+        address.setCity("gotham");
+        address.setState("confusion");
+        address.setZipcode(20165);
+
+        // invoke
         AddressValidator instance = new AddressValidator();
-        Errors expResult = null;
-        Errors result = instance.isAddressComplete(address);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Errors errors = instance.isAddressComplete(address);
+
+        // verify
+        assertFalse(errors.containsErrors());
     }
 }

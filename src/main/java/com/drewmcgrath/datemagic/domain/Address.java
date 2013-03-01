@@ -13,7 +13,7 @@ public class Address {
     private String street;
     private String city;
     private String state;
-    private int zipcode;
+    private int zipcode = -1;
 
     public Address() {
     }
