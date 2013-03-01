@@ -12,8 +12,7 @@ import java.util.List;
  */
 public class Profile {
 
-    private RelationshipType relationshipTime;
-    private OrientationType orientationType;
+    private RelationshipType relationshipType;
     private String firstName;
     private String lastName;
     private int age;
@@ -26,20 +25,12 @@ public class Profile {
     public Profile() {
     }
 
-    public RelationshipType getRelationshipTime() {
-        return relationshipTime;
+    public RelationshipType getRelationshipType() {
+        return relationshipType;
     }
 
-    public void setRelationshipTime(RelationshipType relationshipTime) {
-        this.relationshipTime = relationshipTime;
-    }
-
-    public OrientationType getOrientationType() {
-        return orientationType;
-    }
-
-    public void setOrientationType(OrientationType orientationType) {
-        this.orientationType = orientationType;
+    public void setRelationshipType(RelationshipType relationshipType) {
+        this.relationshipType = relationshipType;
     }
 
     public String getFirstName() {

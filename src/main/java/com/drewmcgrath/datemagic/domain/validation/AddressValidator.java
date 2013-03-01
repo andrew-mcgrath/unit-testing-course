@@ -2,7 +2,6 @@
  * Copyright Angel.com 2011
  *
  */
-
 package com.drewmcgrath.datemagic.domain.validation;
 
 import com.drewmcgrath.datemagic.domain.Address;
@@ -13,7 +12,14 @@ import com.drewmcgrath.datemagic.domain.Address;
  */
 public class AddressValidator {
 
+    /**
+     * Returns if the address is complete
+     *
+     * @param address
+     * @return
+     */
     public Errors isAddressComplete(Address address) {
-        return null;
+        Errors errors = new Errors();
+        return errors;
     }
 }

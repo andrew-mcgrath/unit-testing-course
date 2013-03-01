@@ -17,6 +17,13 @@ public class ProfileValidator {
     public ProfileValidator() {
     }
 
+    /**
+     * Validates the contents of a
+     * <code>com.drewmcgrath.datemagic.domain.Profile</code>
+     *
+     * @param profile
+     * @return
+     */
     public Errors isProfileComplete(Profile profile) {
         Errors errors = new Errors();
         // validate home address

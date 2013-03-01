@@ -37,6 +37,14 @@ public class ErrorsTest {
     public void tearDown() {
     }
 
+    @Test
+    public void testGetErrors() throws Exception {
+        System.out.println("getErrors");
+        Errors errors = new Errors();
+        assertNotNull(errors.getErrors());
+        assertTrue(errors.getErrors().isEmpty());
+    }
+
     /**
      * Test of containsErrors method, of class Errors.
      */
