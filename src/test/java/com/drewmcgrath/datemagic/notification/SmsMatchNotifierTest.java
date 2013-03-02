@@ -12,7 +12,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.drewmcgrath.sms.SmsService;
+import com.drewmcgrath.mobile.sms.SmsService;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

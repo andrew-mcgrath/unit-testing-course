@@ -6,12 +6,14 @@ package com.drewmcgrath.datemagic.domain.validation;
 
 import com.drewmcgrath.datemagic.domain.Address;
 import com.drewmcgrath.datemagic.domain.Profile;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.mockito.ArgumentCaptor;
 import static org.mockito.Mockito.*;
 
 /**
@@ -69,19 +71,26 @@ public class ProfileValidatorTest {
         workAddress.setZipcode("20165");
         profile.setWorkAddress(workAddress);
 
-        // spy
-        AddressValidator addressValidator = new AddressValidator();
-        AddressValidator addressValidatorSpy = spy(addressValidator);
+        // Address Validator Mock
+        AddressValidator mockAddressValidator = mock(AddressValidator.class);
+        when(mockAddressValidator.isAddressComplete(any(Address.class))).thenReturn(new Errors());
+
+        // Captor
+        ArgumentCaptor<Address> captor = ArgumentCaptor.forClass(Address.class);
 
         // create the profile validator
         ProfileValidator instance = new ProfileValidator();
-        instance.setAddressValidator(addressValidatorSpy);
+        instance.setAddressValidator(mockAddressValidator);
 
         // invoke
         Errors result = instance.isProfileComplete(profile);
 
         // verify
-        verify(addressValidatorSpy, times(2)).isAddressComplete(any(Address.class));
+        verify(mockAddressValidator, times(2)).isAddressComplete(captor.capture());
+        List<Address> capturedAddresses = captor.getAllValues();
+        assertEquals(2, capturedAddresses.size());
+        assertEquals(homeAddress, capturedAddresses.get(0));
+        assertEquals(workAddress, capturedAddresses.get(1));
         assertFalse(result.containsErrors());
     }
 }

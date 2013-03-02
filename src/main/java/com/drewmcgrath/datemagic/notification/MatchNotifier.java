@@ -13,5 +13,11 @@ import java.util.Collection;
  */
 public interface MatchNotifier {
 
-    public void notify(Profile profile, Collection<Profile> matches);
+    /**
+     * Notify the profile with the given match
+     *
+     * @param profileToNotify
+     * @param matches
+     */
+    public void notify(Profile profileToNotify, Collection<Profile> matches);
 }

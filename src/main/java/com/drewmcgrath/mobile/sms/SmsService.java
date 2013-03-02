@@ -2,7 +2,7 @@
  * Copyright Andrew McGrath 2013
  *
  */
-package com.drewmcgrath.sms;
+package com.drewmcgrath.mobile.sms;
 
 /**
  *
@@ -10,5 +10,11 @@ package com.drewmcgrath.sms;
  */
 public interface SmsService {
 
+    /**
+     * Send an sms notification to a given phone number
+     *
+     * @param phoneNumber
+     * @param message
+     */
     public void send(String phoneNumber, String message);
 }

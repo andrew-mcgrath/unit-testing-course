@@ -5,7 +5,7 @@
 package com.drewmcgrath.datemagic.notification;
 
 import com.drewmcgrath.datemagic.domain.Profile;
-import com.drewmcgrath.sms.SmsService;
+import com.drewmcgrath.mobile.sms.SmsService;
 import java.util.Collection;
 import org.apache.log4j.Logger;
 

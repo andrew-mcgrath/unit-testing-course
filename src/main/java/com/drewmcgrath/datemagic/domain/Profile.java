@@ -21,6 +21,7 @@ public class Profile {
     private String mobilePhone;
     private Address homeAddress;
     private Address workAddress;
+    private List<NotificationType> preferedNotificationList;
 
     public Profile() {
     }
@@ -95,5 +96,13 @@ public class Profile {
 
     public void setWorkAddress(Address workAddress) {
         this.workAddress = workAddress;
+    }
+
+    public List<NotificationType> getPreferedNotificationList() {
+        return preferedNotificationList;
+    }
+
+    public void setPreferedNotificationList(List<NotificationType> preferedNotificationList) {
+        this.preferedNotificationList = preferedNotificationList;
     }
 }
