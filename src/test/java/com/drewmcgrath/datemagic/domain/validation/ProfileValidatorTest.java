@@ -1,5 +1,5 @@
 /*
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.domain.validation;
@@ -52,19 +52,21 @@ public class ProfileValidatorTest {
         profile.setLastName("America");
         profile.setMobilePhone("5558675309");
         profile.setEmailAddress("camerica@justiceleague.org");
+
         // home address
         Address homeAddress = new Address();
         homeAddress.setStreet("123 home street");
         homeAddress.setCity("gotham");
         homeAddress.setState("va");
-        homeAddress.setZipcode(20165);
+        homeAddress.setZipcode("20165");
         profile.setHomeAddress(homeAddress);
+
         // work address
         Address workAddress = new Address();
         workAddress.setStreet("123 work street");
         workAddress.setCity("gotham");
         workAddress.setState("va");
-        workAddress.setZipcode(20165);
+        workAddress.setZipcode("20165");
         profile.setWorkAddress(workAddress);
 
         // spy

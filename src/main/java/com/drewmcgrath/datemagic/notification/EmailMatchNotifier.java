@@ -1,5 +1,5 @@
 /**
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.notification;
@@ -83,6 +83,10 @@ public class EmailMatchNotifier implements MatchNotifier {
      */
     protected Session getSession() {
         return this.mailSession;
+    }
+
+    protected void setSession(Session session) {
+        this.mailSession = session;
     }
 
     public Properties getConfiguration() {

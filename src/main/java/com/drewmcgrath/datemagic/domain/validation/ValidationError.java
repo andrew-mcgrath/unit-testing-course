@@ -1,5 +1,5 @@
 /**
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.domain.validation;
@@ -10,6 +10,7 @@ package com.drewmcgrath.datemagic.domain.validation;
  */
 public class ValidationError {
 
+    // the identifing field that is invalid
     private String field;
 
     public ValidationError() {

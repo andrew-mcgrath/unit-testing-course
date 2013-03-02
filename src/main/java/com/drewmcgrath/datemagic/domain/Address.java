@@ -1,5 +1,5 @@
 /**
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.domain;
@@ -13,7 +13,7 @@ public class Address {
     private String street;
     private String city;
     private String state;
-    private int zipcode = -1;
+    private String zipcode;
 
     public Address() {
     }
@@ -42,11 +42,11 @@ public class Address {
         this.state = state;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.notification;
@@ -54,12 +54,15 @@ public class SmsMatchNotifierTest {
         List<Profile> matchList = new ArrayList<Profile>();
         Profile match1 = createProfile("5551112222");
         matchList.add(match1);
+        Profile match2 = createProfile("5551113333");
+        matchList.add(match2);
 
         // notifier instance
         SmsMatchNotifier instance = new SmsMatchNotifier();
         // mock the builder
         SmsNotificationBuilder mockSmsNotificationBuilder = mock(SmsNotificationBuilder.class);
         when(mockSmsNotificationBuilder.build(match1)).thenReturn("match1 message");
+        when(mockSmsNotificationBuilder.build(match2)).thenReturn("match2 message");
         instance.setBuilder(mockSmsNotificationBuilder);
 
         // mock the sms service
@@ -69,9 +72,15 @@ public class SmsMatchNotifierTest {
         // invoke
         instance.notify(profileToNotify, matchList);
 
-        // test/verify
+        // verify sms notification builder
+        verify(mockSmsNotificationBuilder, times(2)).build(any(Profile.class));
         verify(mockSmsNotificationBuilder, times(1)).build(match1);
+        verify(mockSmsNotificationBuilder, times(1)).build(match2);
+
+        // verify sms service
+        verify(mockSmsService, times(2)).send(any(String.class), any(String.class));
         verify(mockSmsService, times(1)).send("5558675309", "match1 message");
+        verify(mockSmsService, times(1)).send("5558675309", "match2 message");
     }
 
     /**

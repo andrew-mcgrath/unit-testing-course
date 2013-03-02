@@ -1,5 +1,5 @@
 /**
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.notification;
@@ -17,7 +17,6 @@ public class SmsMatchNotifier implements MatchNotifier {
 
     // logger
     private static final Logger LOG = Logger.getLogger(SmsMatchNotifier.class);
-
     // injected
     private NotificationBuilder builder = null;
     private SmsService smsService = null;
@@ -26,6 +25,7 @@ public class SmsMatchNotifier implements MatchNotifier {
      * Constructor
      */
     public SmsMatchNotifier() {
+        // empty
     }
 
     @Override

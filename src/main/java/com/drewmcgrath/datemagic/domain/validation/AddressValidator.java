@@ -1,5 +1,5 @@
 /**
- * Copyright Angel.com 2011
+ * Copyright Andrew McGrath 2013
  *
  */
 package com.drewmcgrath.datemagic.domain.validation;
@@ -34,7 +34,7 @@ public class AddressValidator {
             if (StringUtils.isEmpty(address.getCity())) {
                 errors.add(new ValidationError("address.city"));
             }
-            if (address.getZipcode() == -1) {
+            if (StringUtils.isEmpty(address.getZipcode())) {
                 errors.add(new ValidationError("address.zipcode"));
             }
         }
