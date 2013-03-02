@@ -44,8 +44,8 @@ public class PushMatchNotifierTest {
      * Test of notify method, of class PushMatchNotifier.
      */
     @Test
-    public void testNotify_Profile_Collection() {
-        System.out.println("notify(Profile,Collection<Profile>)");
+    public void testNotifyProfileWithCollectionSpyOnly() {
+        System.out.println("notify(Profile,Collection<Profile>) spy only");
 
         // profile to notify
         Profile profileToNotify = createProfile("5558675309");
@@ -63,6 +63,43 @@ public class PushMatchNotifierTest {
         // create the spy
         PushMatchNotifier spy = spy(instance);
         doNothing().when(spy).notify(any(Profile.class), any(Profile.class));
+
+        // invoke
+        spy.notify(profileToNotify, matches);
+
+        // verify
+        verify(spy, times(1)).notify(profileToNotify, match1);
+        verify(spy, times(1)).notify(profileToNotify, match2);
+    }
+
+    /**
+     * Test of notify method, of class PushMatchNotifier.
+     */
+    @Test
+    public void testNotifyProfileWithCollectionSpyMock() {
+        System.out.println("notify(Profile,Collection<Profile>) spy mock");
+
+        // profile to notify
+        Profile profileToNotify = createProfile("5558675309");
+
+        // matches
+        Collection<Profile> matches = new ArrayList<Profile>();
+        Profile match1 = createProfile("1112223333");
+        matches.add(match1);
+        Profile match2 = createProfile("1112224444");
+        matches.add(match2);
+
+        // create the service
+        PushMatchNotifier instance = new PushMatchNotifier();
+
+        // mocks
+        PushNotificationBuilder mockPushNotificationBuilder = mock(PushNotificationBuilder.class);
+        PushService mockPushService = mock(PushService.class);
+
+        // create the spy
+        PushMatchNotifier spy = spy(instance);
+        spy.setPushNotificationBuilder(mockPushNotificationBuilder);
+        spy.setPushService(mockPushService);
 
         // invoke
         spy.notify(profileToNotify, matches);

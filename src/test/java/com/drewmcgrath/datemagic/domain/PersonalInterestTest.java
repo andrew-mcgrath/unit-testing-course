@@ -4,38 +4,55 @@
  */
 package com.drewmcgrath.datemagic.domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 /**
  *
  * @author amcgrath
  */
+@RunWith(value = Parameterized.class)
 public class PersonalInterestTest {
 
-    public PersonalInterestTest() {
+    //<editor-fold defaultstate="collapsed" desc="parameterized">
+    private String input;
+    private PersonalInterest expectedResult;
+
+    public PersonalInterestTest(String input, PersonalInterest output) {
+        this.input = input;
+        this.expectedResult = output;
     }
 
-    @BeforeClass
-    public static void setUpClass() {
+    @Parameters
+    public static Collection<Object[]> data() {
+        Object[][] data = new Object[][]{
+            {null, null},
+            {"nothing that matches", null},
+            {"Dancing", PersonalInterest.DANCING},
+            {"Dining", PersonalInterest.DINING},
+            {"Underwater Basket Weaving", PersonalInterest.UNDER_WATER_BASKET_WEAVING},
+            {"DaNcInG", PersonalInterest.DANCING},
+            {"DiNing", PersonalInterest.DINING},
+            {"UnderWater BasKet WeaVing", PersonalInterest.UNDER_WATER_BASKET_WEAVING}
+        };
+        return Arrays.asList(data);
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    @Test
+    public void testAll() throws Exception {
+        System.out.println("all");
 
-    @Before
-    public void setUp() {
+        PersonalInterest actualResult = PersonalInterest.fromDisplayText(this.input);
+        assertEquals(actualResult, this.expectedResult);
     }
+    //</editor-fold>
 
-    @After
-    public void tearDown() {
-    }
-
+    //<editor-fold defaultstate="collapsed" desc="Not Parameterized">
     @Test
     public void testFromDisplayTextNull() {
         System.out.println("fromDisplayTextNull");
@@ -87,4 +104,5 @@ public class PersonalInterestTest {
         result = PersonalInterest.fromDisplayText(text);
         assertEquals(PersonalInterest.UNDER_WATER_BASKET_WEAVING, result);
     }
+    //</editor-fold>
 }
