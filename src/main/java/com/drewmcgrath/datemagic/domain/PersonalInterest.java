@@ -12,8 +12,9 @@ public enum PersonalInterest {
 
     DINING("Dining"),
     DANCING("Dancing"),
-    UNDER_WATER_BASKET_WEAVING("Underwater Basket Weaving");
-    
+    UNDER_WATER_BASKET_WEAVING("Underwater Basket Weaving"),
+    UNKNOWN("Unknown");
+
     /**
      * The string that will be displayed on the webpage
      */

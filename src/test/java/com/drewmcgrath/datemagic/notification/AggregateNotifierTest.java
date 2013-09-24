@@ -51,9 +51,11 @@ public class AggregateNotifierTest {
         Profile profile = new Profile();
         List<NotificationType> notificationTypes = new ArrayList<NotificationType>();
         notificationTypes.add(NotificationType.SMS);
+        notificationTypes.add(NotificationType.EMAIL);
         profile.setPreferedNotificationList(notificationTypes);
 
         Collection<Profile> matches = new ArrayList<Profile>();
+        matches.add(new Profile());
         // mock sms
         EmailMatchNotifier mockEmail = mock(EmailMatchNotifier.class);
 
@@ -74,6 +76,6 @@ public class AggregateNotifierTest {
 
         // verify
         verify(mockSms, times(1)).notify(profile, matches);
-        verify(mockSms, times(1)).notify(profile, matches);
+        verify(mockEmail, times(1)).notify(profile, matches);
     }
 }
