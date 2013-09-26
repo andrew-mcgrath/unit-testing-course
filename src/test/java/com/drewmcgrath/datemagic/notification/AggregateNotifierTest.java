@@ -6,19 +6,15 @@ package com.drewmcgrath.datemagic.notification;
 
 import com.drewmcgrath.datemagic.domain.NotificationType;
 import com.drewmcgrath.datemagic.domain.Profile;
+import org.junit.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 import static org.mockito.Mockito.*;
 
 /**
- *
  * @author amcgrath
  */
 public class AggregateNotifierTest {
@@ -56,10 +52,10 @@ public class AggregateNotifierTest {
 
         Collection<Profile> matches = new ArrayList<Profile>();
         matches.add(new Profile());
-        // mock sms
+        // mock email
         EmailMatchNotifier mockEmail = mock(EmailMatchNotifier.class);
 
-        // mock email
+        // mock sms
         SmsMatchNotifier mockSms = mock(SmsMatchNotifier.class);
 
         // mock push
@@ -77,5 +73,6 @@ public class AggregateNotifierTest {
         // verify
         verify(mockSms, times(1)).notify(profile, matches);
         verify(mockEmail, times(1)).notify(profile, matches);
+        verify(mockPush, times(0)).notify(any(Profile.class), anyCollectionOf(Profile.class));
     }
 }

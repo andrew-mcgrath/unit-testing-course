@@ -35,6 +35,6 @@ class AggregateNotifierSpec extends Specification {
         then:
         1 * smsMatchNotifier.notify(profile, matches)
         1 * emailMatchNotifier.notify(profile, matches)
-        0 * smsMatchNotifier._
+        0 * pushMatchNotifier._
     }
 }
